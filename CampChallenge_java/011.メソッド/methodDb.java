@@ -33,10 +33,15 @@ public class methodDb extends HttpServlet {
         2. 作成したメソッドを呼び出し、戻り値のID以外を表示してください。
     */
     
-    String[] dataArray(String id, String name, String birth, String adress){
+    String[] dataArray(){
         
         String data[] = new String[4];
         
+        String id     = "11111";        //ID
+        String name   = "山田";         //名前
+        String birth  = "1990/02/01";   //生年月日
+        String adress = "北海道";       //住所
+       
         data[0] = id;
         data[1] = name;
         data[2] = birth;
@@ -53,12 +58,7 @@ public class methodDb extends HttpServlet {
         
         String data[];
         
-        String id     = "12345";
-        String name   = "堀";
-        String birth  = "1992/03/26";
-        String adress = "千葉県";
-        
-        data = dataArray(id, name, birth, adress);
+        data = dataArray();
 
         for(int i = 1; i < data.length ; i++){
             out.print(data[i] + "<br>");
