@@ -12,7 +12,7 @@ import java.io.*;
  * @author hori
  */
 
-//　ファイルに自己紹介を書き出し、保存してください。
+//　ファイルに自己紹介を書き出し、保存してください。　
 
 public class java15_4_1 {
     public static void main(String[] arg) throws IOException{
