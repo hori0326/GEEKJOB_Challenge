@@ -9,11 +9,10 @@
 <%
     int total = 0;
     
-    for(int i = 0; i < 100; i++){
+    for(int i = 0; i <= 100; i++){
         total += i;
+        out.print("+" + i + "：" + total + "<br>");
     }
-    
-    out.print(total);
 %>
 <html>
     <head>
