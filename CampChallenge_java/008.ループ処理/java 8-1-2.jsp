@@ -7,13 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    String total = "A";
+    String total = "";
     
     for(int i = 0; i < 30; i++){
         total += "A";
+        out.print(i+1 + "回目：" + total + "<br>");
     }
-    
-    out.print(total);
 %>
 <html>
     <head>
