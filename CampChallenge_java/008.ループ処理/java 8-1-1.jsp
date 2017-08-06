@@ -10,9 +10,8 @@
     
     for(int i = 0; i < 20; i++){
         total *= 8;
+        out.print(i+1 + "回目：" + total + "<br>");
     }
-    
-    out.print(total);
 %>
 <!DOCTYPE html>
 <html>
