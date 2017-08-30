@@ -1,0 +1,58 @@
+1．<form>のmethod属性をPOST→GETに変更(仕様書より)
+search.jsp　13行目付近
+
+
+2．UserDataDTOがJavaBeansのルールを満たしていない（直列化可能になっていない）
+UserDataDTO.java　14行目付近
+
+
+3．検索結果の画面で"名前"をクリックすると、IDが2のデータが固定で表示される
+ResultDetail.java　34行目付近
+
+
+4．検索結果の画面で複数件ヒットしても、1件しか表示されない
+UserDataDAO.java　 152行目付近
+SearchResult.java　49行目付近
+SearchResult.jsp　 28行目付近
+
+
+5．検索結果の画面で種別を数字から日本語に表示変更
+SearchResult.jsp　33行目付近
+
+
+6．検索画面で、3つの検索条件のうち、1つでも未入力だとエラーが出る
+UserDataDAO.java　108行目付近
+
+
+7．検索画面で、検索条件が何も入力されていないときは全件表示
+UserDataDAO.java　101行目付近
+
+
+8．ユーザー詳細ページから検索結果へ戻る機能
+resultdetail.jsp　 32行目付近
+
+
+9．更新画面で、更新するデータがフォーム内に直接記入されている機能
+update.jsp　23行目付近
+
+
+10．更新画面→ユーザー詳細ページへ戻る機能
+update.jsp　72行目付近
+
+
+11．更新機能を追加
+下記のファイルを全体的に修正
+update.jsp
+Update.java
+updateresult.jsp
+UpdateResult.java
+UserDataDAO
+
+
+12．削除機能を追加
+下記のファイルを全体的に修正
+delete.jsp
+Delete.jsp
+deleteresult.jsp
+DeleteResult.java
+UserDataDAO
