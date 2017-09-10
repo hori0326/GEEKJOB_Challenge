@@ -27,6 +27,7 @@
 </html>
 
 <%
+    // 不要になったセッションを破棄
     hs.removeAttribute("ac");
     hs.removeAttribute("udb");
     hs.removeAttribute("userdata");

@@ -26,27 +26,37 @@ public class InsertConfirm extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        // セッション開始
+        HttpSession session = request.getSession();
+        
         try {
-            HttpSession session = request.getSession();
-            request.setCharacterEncoding("UTF-8");//セッションに格納する文字コードをUTF-8に変更
+            // リクエストパラメータの文字コードをUTF-8に変更
+            request.setCharacterEncoding("UTF-8");
+            
+            // アクセスチェック
             String accesschk = request.getParameter("ac");
             if (accesschk == null || (Integer) session.getAttribute("ac") != Integer.parseInt(accesschk)) {
                 throw new Exception("不正なアクセスです");
             }
 
+            // 入力情報をJavaBeansにセット
             UserDataBeans udb = new UserDataBeans();
-
-            udb.setName(request);
-            udb.setYear(request);
-            udb.setMonth(request);
-            udb.setDay(request);
-            udb.setType(request);
-            udb.setTell(request);
-            udb.setComment(request);
-
+            udb.setName(request.getParameter("name"));
+            udb.setYear(request.getParameter("year"));
+            udb.setMonth(request.getParameter("month"));
+            udb.setDay(request.getParameter("day"));
+            udb.setType(request.getParameter("type"));
+            udb.setTell(request.getParameter("tell"));
+            udb.setComment(request.getParameter("comment"));
+            // 入力情報をセッションに書き込み
             session.setAttribute("udb", udb);
-
+            
+            System.out.println(request.getParameter("name"));
+            
+            // フォワード
             request.getRequestDispatcher("/insertconfirm.jsp").forward(request, response);
+            
         } catch (Exception e) {
             request.setAttribute("error", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
