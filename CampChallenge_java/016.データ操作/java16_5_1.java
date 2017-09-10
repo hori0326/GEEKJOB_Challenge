@@ -48,9 +48,9 @@ public class java16_5_1 extends HttpServlet {
 
         HttpSession hs = request.getSession();
 
-        hs.setAttribute("Session_date", sdf.format(now));
-
         out.print("前回のログイン時間：" + hs.getAttribute("Session_date"));
+        
+        hs.setAttribute("Session_date", sdf.format(now));
 
     }
 
