@@ -34,9 +34,7 @@ public class java19_3_8_r extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        out.print("名前：" + request.getParameter("searchName") + "を検索しました<br><br>");
-        
-        if(request.getParameter("searchName") == ""){
+        if(request.getParameter("searchName").equals("")){
             out.print("名前が入力されていません");
         } else {
             Connection conn = null;
@@ -56,9 +54,8 @@ public class java19_3_8_r extends HttpServlet {
 
                 rs = pstmt.executeQuery();
 
-                if(rs.next() == false){
-                    out.print("見つかりませんでした");
-                }
+                if(rs.next() == false) { out.print("見つかりませんでした"); }
+                rs.beforeFirst();
                 
                 while(rs.next()){
                     int profilesID = rs.getInt("profilesID");
